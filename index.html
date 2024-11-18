@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>$Earrape</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Fullscreen Layout */
+      body,
+      html {
+        height: 100vh;
+        width: 100%;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #333;
+        transition: background-color 0.1s;
+      }
+
+      .social-links {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+        gap: 15px;
+      }
+
+      /* Social Link Icons */
+      .social-links a {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #007bff;
+      }
+
+      /* Button Styling */
+      #revealButton {
+        padding: 15px 30px;
+        font-size: 18px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #revealButton:hover {
+        background-color: #0056b3;
+      }
+
+      /* Content Styling */
+      .content {
+        display: none; /* Hidden by default */
+        text-align: center;
+      }
+
+      #centerImage {
+        max-width: 80%;
+        height: auto;
+        margin-top: 20px;
+        animation: shake 0.1s infinite alternate;
+      }
+
+      /* Keyframes for Shaking Animation */
+      @keyframes shake {
+        0% {
+          transform: translateX(-5px);
+        }
+        100% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Keyframes for Flashing Background Color */
+      @keyframes flashBackground {
+        0% {
+          background-color: #333;
+        }
+        100% {
+          background-color: red;
+        }
+      }
+
+      /* Flash Background Animation Class */
+      .flash-bg {
+        animation: flashBackground 1s infinite alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Button to Reveal Content -->
+    <button id="revealButton">$click here</button>
+
+    <!-- Social Links -->
+    <div class="social-links">
+      <a href="" target="_blank" aria-label="Telegram">
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/telegram-app.png"
+          alt="Telegram Icon"
+          width="24"
+          height="24"
+        />
+      </a>
+      <a href="" target="_blank" aria-label="Twitter">
+        <img
+          src="https://img.icons8.com/ios-filled/50/ffffff/twitter.png"
+          alt="Twitter Icon"
+          width="24"
+          height="24"
+        />
+      </a>
+    </div>
+
+    <!-- Centered Image and Content -->
+    <div class="content">
+      <img id="centerImage" src="/assets/earrape.png" alt="Centered Image" />
+    </div>
+
+    <!-- Background Audio -->
+    <audio id="backgroundAudio" loop>
+      <source src="/assets/Rick Roll EARRAPE.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      // Grab elements
+      const revealButton = document.getElementById("revealButton");
+      const content = document.querySelector(".content");
+      const backgroundAudio = document.getElementById("backgroundAudio");
+
+      // Click event for button
+      revealButton.addEventListener("click", () => {
+        // Hide button, show content, play audio, and start background animation
+        revealButton.style.display = "none";
+        content.style.display = "block";
+        backgroundAudio.play();
+        document.body.classList.add("flash-bg"); // Start background flashing
+      });
+    </script>
+  </body>
+</html>
